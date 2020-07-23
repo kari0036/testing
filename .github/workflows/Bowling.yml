@@ -14,10 +14,10 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
-    - name: mkdir shm/build
-      run: mkdir shm/build
+    - name: mkdir bowling/build
+      run: mkdir bowling/build
     - name: Compile
-      working-directory: shm/build
+      working-directory: bowling/build
       run: |
         cmake ..
         make
