@@ -1,10 +1,6 @@
 name: C/C++ CI
 
-on:
-  push:
-    branches: [ master, HomeworkBowling ]
-  pull_request:
-    branches: [ master, HomeworkBowling ]
+on: [push, pull_request]
 
 jobs:
   BowlingGame:
