@@ -18,5 +18,5 @@ jobs:
         cmake ..
         make
     - name: Run tests
-      working-directory: shm/build
+      working-directory: bowling/build
       run: ctest -V   
