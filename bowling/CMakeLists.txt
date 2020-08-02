@@ -23,8 +23,8 @@ add_executable(${EXECUTABLE_CALCULATOR_FILE} main.cpp)
 add_executable(${EXECUTABLE_TEST_FILE} ./tests/test.cpp)
 target_link_libraries(${EXECUTABLE_CALCULATOR_FILE} lib)
 target_link_libraries(${EXECUTABLE_TEST_FILE} lib)
-target_compile_options(${EXECUTABLE_CALCULATOR_FILE} PRIVATE -Wall -Wextra -Werror)
-target_compile_options(${EXECUTABLE_TEST_FILE} PRIVATE -Wall)
+target_compile_options(${EXECUTABLE_CALCULATOR_FILE} PRIVATE -Wall -Wextra -Werror -std=c++17)
+target_compile_options(${EXECUTABLE_TEST_FILE} PRIVATE -Wall -std=c++17)
 
 
 
