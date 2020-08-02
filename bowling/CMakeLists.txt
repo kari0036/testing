@@ -11,7 +11,7 @@ set(EXECUTABLE_TEST_FILE ${PROJECT_NAME}-TestsExe)
 
 #cpp files for BowlingScoreCalculator compilation
 set(CALCULATOR_SOURCE_FILES
-    calculator.cpp
+    directoryContent.cpp
     )
 #cpp files for BowlingScoreCalculator-Tests compilation
 

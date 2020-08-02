@@ -1,7 +1,13 @@
+#include "directoryContent.hpp"
+#include <filesystem>
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello Bowling Score Calculator!\n";
-    return 0;
+namespace fs = std::filesystem;
+
+int main() {
+char dir[] = "../scores";
+directoryContent ScoresFolder(dir); 
+
+  return 0;
 }
+
