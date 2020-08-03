@@ -1,5 +1,8 @@
-#include "catch.hpp"
 #include "../DirectoryContent.hpp"
+#include "../FlagTests.hpp"
+#include "catch.hpp"
+#include <iostream>
+#include <sstream>
 namespace fs = std::filesystem;
 
 SCENARIO("SearchingFilesAndFileContentInDirectory") {
@@ -30,6 +33,28 @@ SCENARIO("SearchingFilesAndFileContentInDirectory") {
       THEN("MapWithFileNameAndFileContentFilled") {
         REQUIRE(expectedMap == scores.getFileNameAndContentMap());
       }
+    }
+  }
+}
+
+SCENARIO("CheckingActionsDependsOnFlag") {
+  /* GIVEN("SearchForHelpFlag") {
+
+    int flagsCount = 2;
+    char *flagsContent[] = {
+        "ExecutedFileName",
+        "h",
+    };
+    WHEN("PassMainArguments") {
+      SearchHelpFlag(flagsCount, flagsContent);
+      THEN("CheckIfFlagWasFound") {}
+    }
+  } */
+  GIVEN("OutputBufferObjectToWriteIn") {
+    std::stringstream OutputBufferObject;
+    printOutHelp(OutputBufferObject);
+    THEN("CheckIfPrintWhatItShould") {
+      REQUIRE(OutputBufferObject.str() == "HelpMeIamLost");
     }
   }
 }
