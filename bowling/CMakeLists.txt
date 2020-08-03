@@ -11,20 +11,24 @@ set(EXECUTABLE_TEST_FILE ${PROJECT_NAME}-TestsExe)
 
 #cpp files for BowlingScoreCalculator compilation
 set(CALCULATOR_SOURCE_FILES
-    directoryContent.cpp
+    DirectoryContent.cpp
     )
 #cpp files for BowlingScoreCalculator-Tests compilation
-
+set(TESTS_SOURCE_FILES
+    ./tests/testMain.cpp
+    ${CALCULATOR_SOURCE_FILES}
+    )
 enable_testing()
 add_test(NAME ${TEST_NAME} COMMAND ${EXECUTABLE_TEST_FILE})
 
 add_library(lib STATIC ${CALCULATOR_SOURCE_FILES} )
+add_library(testlib STATIC ${TESTS_SOURCE_FILES})
 add_executable(${EXECUTABLE_CALCULATOR_FILE} main.cpp)
-add_executable(${EXECUTABLE_TEST_FILE} ./tests/test.cpp)
+add_executable(${EXECUTABLE_TEST_FILE} ./tests/tests.cpp)
 target_link_libraries(${EXECUTABLE_CALCULATOR_FILE} lib)
-target_link_libraries(${EXECUTABLE_TEST_FILE} lib)
-target_compile_options(${EXECUTABLE_CALCULATOR_FILE} PRIVATE -Wall -Wextra -Werror -std=c++17)
-target_compile_options(${EXECUTABLE_TEST_FILE} PRIVATE -Wall -std=c++17)
+target_link_libraries(${EXECUTABLE_TEST_FILE} testlib)
+target_compile_options(${EXECUTABLE_CALCULATOR_FILE} PRIVATE -Wall -Wextra -Werror -pedantic -std=c++17)
+target_compile_options(${EXECUTABLE_TEST_FILE} PRIVATE -Wall -Wextra -Werror -pedantic -std=c++17)
 
 
 

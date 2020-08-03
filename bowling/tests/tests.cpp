@@ -1,14 +1,12 @@
-#define CATCH_CONFIG_MAIN
-#include "../directoryContent.hpp"
 #include "catch.hpp"
-#include <iostream>
+#include "../DirectoryContent.hpp"
 namespace fs = std::filesystem;
 
 SCENARIO("SearchingFilesAndFileContentInDirectory") {
 
   GIVEN("Created directoryContent object and fake vector just for comparison") {
     char dir[] = "../scores";
-    directoryContent scores(dir);
+    DirectoryContent scores(dir);
     std::vector<fs::path> expectedDirectoryContent;
     fs::path dir1("../scores/lane1");
     fs::path dir2("../scores/lane2");
@@ -30,19 +28,6 @@ SCENARIO("SearchingFilesAndFileContentInDirectory") {
     }
     WHEN("ReadFiles") {
       THEN("MapWithFileNameAndFileContentFilled") {
-        auto originalMap = scores.getFileNameAndContentMap();
-/*         for (const auto &[k, v] : expectedMap) {
-          std::cout << "Expected Map: " << k << '\n';
-          std::cout << "Expected Vector: \n";
-          for (auto &string : v) {
-            std::cout << string << '\n';
-          }
-          std::cout << "Original Map: " << originalMap.find(k)->first << '\n';
-          std::cout << "Original Vector: \n";
-          for (auto &string : originalMap.find(k)->second) {
-            std::cout << string << '\n';
-          }
-        } */
         REQUIRE(expectedMap == scores.getFileNameAndContentMap());
       }
     }

@@ -1,4 +1,4 @@
-#include "directoryContent.hpp"
+#include "DirectoryContent.hpp"
 #include <filesystem>
 #include <iostream>
 
@@ -6,7 +6,7 @@ namespace fs = std::filesystem;
 
 int main() {
 char dir[] = "../scores";
-directoryContent ScoresFolder(dir); 
+DirectoryContent ScoresFolder(dir); 
 
   return 0;
 }
