@@ -38,18 +38,6 @@ SCENARIO("SearchingFilesAndFileContentInDirectory") {
 }
 
 SCENARIO("CheckingActionsDependsOnFlag") {
-  /* GIVEN("SearchForHelpFlag") {
-
-    int flagsCount = 2;
-    char *flagsContent[] = {
-        "ExecutedFileName",
-        "h",
-    };
-    WHEN("PassMainArguments") {
-      SearchHelpFlag(flagsCount, flagsContent);
-      THEN("CheckIfFlagWasFound") {}
-    }
-  } */
   GIVEN("OutputBufferObjectToWriteIn") {
     std::stringstream OutputBufferObject;
     printOutHelp(OutputBufferObject);
