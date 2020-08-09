@@ -1,15 +1,11 @@
 name: C/C++ CI
 
-on:
-  push:
-    branches: [ master, HomeworkBowling ]
-  pull_request:
-    branches: [ master, HomeworkBowling ]
+on: [push, pull_request]
 
 jobs:
   BowlingGame:
 
-    runs-on: ubuntu-latest
+    runs-on: [ubuntu-20.04]
 
     steps:
     - name: Checkout code
@@ -22,5 +18,5 @@ jobs:
         cmake ..
         make
     - name: Run tests
-      working-directory: shm/build
+      working-directory: bowling/build
       run: ctest -V   
