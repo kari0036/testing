@@ -42,7 +42,7 @@ SCENARIO("CheckingActionsDependsOnFlag") {
     std::stringstream OutputBufferObject;
     printOutHelp(OutputBufferObject);
     THEN("CheckIfPrintWhatItShould") {
-      REQUIRE(OutputBufferObject.str() == "HelpMeIamLost");
+      REQUIRE(OutputBufferObject.str() == helpMessage);
     }
   }
 }
